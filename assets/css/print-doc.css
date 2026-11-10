@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Classroom print documents — worksheets, papers and answer keys
+   Used with assets/css/style.css for brand tokens and base typography.
+   ========================================================================== */
+
+.doc-body{background:#fff;color:#111;font-size:11pt;line-height:1.55}
+.doc-page{max-width:820px;margin:0 auto;padding:26px 28px 38px}
+
+.doc-head{border-bottom:3px solid var(--gold);padding-bottom:14px;margin-bottom:18px}
+.doc-brand{display:flex;align-items:center;gap:11px}
+.doc-brand img{width:42px;height:42px;border-radius:10px}
+.doc-brand div{display:flex;flex-direction:column;line-height:1.15}
+.doc-brand b{font-family:var(--font-display);font-size:1.02rem;color:var(--forest-900)}
+.doc-brand span{font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.doc-tag{margin-left:auto;font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--forest-700);border:1px solid var(--sage-2);border-radius:999px;padding:5px 9px;white-space:nowrap}
+
+.doc-kicker{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-strong);margin-top:18px;display:flex;align-items:center;gap:8px}
+.doc-kicker::before{content:"";width:20px;height:2px;background:var(--gold)}
+.doc-title{font-family:var(--font-display);font-size:1.95rem;line-height:1.1;color:var(--forest-900);margin-top:7px;letter-spacing:-.02em}
+.doc-sub{font-size:.95rem;color:#44544a;margin-top:7px;max-width:660px}
+.doc-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.doc-chips span{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--sage-2);border-radius:999px;padding:4px 9px;color:var(--forest-700);background:#F7FAF5}
+
+.doc-fields{display:grid;grid-template-columns:1.6fr 1fr .9fr;gap:16px;border:1px solid #C9D4C9;border-radius:8px;padding:12px 14px;margin:16px 0 18px;background:#FBFCF9}
+.doc-field{display:flex;flex-direction:column;gap:4px}
+.doc-field span{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.doc-field .rule{border-bottom:1px solid #6b7a70;height:20px}
+
+.doc-note{background:var(--gold-wash);border-left:4px solid var(--gold);border-radius:0 7px 7px 0;padding:9px 13px;font-size:.86rem;color:var(--forest-900);margin:14px 0}
+.doc-note b{color:var(--forest-900)}
+.doc-note.green{background:#EFF5EC;border-left-color:var(--forest-600)}
+
+.doc-section{margin-top:24px}
+.doc-section h2{font-size:1.08rem;font-family:var(--font-body);font-weight:800;color:var(--forest-900);border-bottom:1px solid #C9D4C9;padding-bottom:6px;display:flex;align-items:baseline;gap:9px}
+.doc-section h2 .n{display:inline-flex;align-items:center;justify-content:center;min-width:25px;height:25px;border-radius:6px;background:var(--forest);color:var(--gold);font-size:.72rem;font-weight:800;flex:none}
+.doc-section .hint{font-size:.84rem;color:#4b5b51;margin-top:7px}
+.doc-word-bank{border:1px dashed #A9B8AA;border-radius:7px;padding:8px 12px;margin-top:9px;font-size:.84rem;color:#33443a;background:#FAFBF8}
+.doc-word-bank b{color:var(--forest-900)}
+
+.doc-q{margin:13px 0;break-inside:avoid}
+.doc-q .q{display:flex;gap:8px;font-size:.95rem;color:#1a2a20}
+.doc-q .q b{flex:none;color:var(--forest-900);min-width:20px}
+.doc-q .opts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:7px 0 0 28px}
+.doc-q .opt{display:inline-flex;align-items:center;gap:6px;font-size:.87rem;color:#33443a}
+.doc-q .box{width:13px;height:13px;border:1.4px solid #738376;border-radius:2px;display:inline-block;flex:none}
+.doc-lines{margin-left:28px;margin-top:8px}
+.doc-lines i{display:block;border-bottom:1px solid #C4CEC5;height:22px}
+.doc-lines i + i{height:20px}
+
+table.doc-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem;break-inside:auto}
+.doc-table th{background:var(--sage);color:var(--forest-900);text-align:left;padding:7px 9px;border:1px solid #C4D0C5;font-size:.61rem;letter-spacing:.07em;text-transform:uppercase;vertical-align:bottom}
+.doc-table td{padding:7px 9px;border:1px solid #D2DBD3;vertical-align:top;color:#26372c}
+.doc-table td.c{text-align:center;white-space:nowrap}
+.doc-table tbody tr{break-inside:avoid}
+.doc-table .mark{display:inline-block;width:13px;height:13px;border:1.4px solid #738376;border-radius:2px}
+
+.doc-answer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.doc-answer-grid div{border:1px solid #C4D0C5;border-radius:6px;padding:7px 9px;display:flex;align-items:center;gap:7px;font-size:.8rem}
+.doc-answer-grid b{color:var(--forest-900)}
+.doc-answer-grid .rule{flex:1;border-bottom:1px solid #6b7a70;height:16px}
+
+.doc-foot{margin-top:28px;padding-top:10px;border-top:1px solid #C9D4C9;display:flex;justify-content:space-between;gap:12px;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.key-table td:first-child{width:26px;text-align:center;font-weight:800;color:var(--forest-900)}
+.key-table td:nth-child(2){width:64px;font-weight:800;color:var(--forest-900)}
+.key-table .why{color:#3d4f43;font-size:.8rem}
+.key-band{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--forest);color:var(--cream);border-radius:8px;padding:11px 15px;margin-top:14px}
+.key-band b{font-family:var(--font-display);font-size:1.02rem;color:var(--cream)}
+.key-band span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,247,239,.75)}
+.page-break{break-before:page}
+
+@media print{
+  @page{size:A4;margin:14mm 14mm 16mm}
+  .doc-body{font-size:10pt}
+  .doc-page{max-width:none;padding:0}
+  .doc-head{padding-bottom:11px;margin-bottom:14px}
+  .doc-title{font-size:1.72rem}
+  .doc-sub{font-size:.88rem}
+  .doc-fields{margin:12px 0 14px}
+  .doc-section{margin-top:18px}
+  .doc-section h2{break-after:avoid}
+  .doc-section .hint,.doc-word-bank,.doc-note,.doc-answer-grid{break-after:avoid;break-inside:avoid}
+  .doc-q{margin:10px 0}
+  .doc-note{padding:7px 11px}
+  .doc-chips span{background:#fff}
+  .doc-foot{margin-top:18px}
+  a{color:inherit}
+}

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Week 1 · Lesson 3 Quiz — Starting Up, Windows 10/11 &amp; the Desktop | Dalswin Institute</title>
+<style>
+:root{
+  --forest:#0A4027;--deep:#062A1A;--gold:#F2A91C;--gold-ink:#8A5600;
+  --cream:#FAF7EF;--sage:#E6EDE5;--ink:#17251D;--muted:#5B6B61;--line:#DCE4DC;
+  --green:#157347;--red:#B42318;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.16;color:var(--forest);margin:0}
+p{margin:0 0 14px}
+button{font:inherit}
+/* header */
+.top{display:flex;align-items:center;gap:14px;background:var(--forest);color:#fff;padding:15px 24px;border-bottom:4px solid var(--gold)}
+.top .mark{width:44px;height:44px;flex:none}
+.top .who{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.top .who b{font-family:Georgia,"Times New Roman",serif;font-size:1.02rem;font-weight:600;letter-spacing:.01em}
+.top .who span{font-size:.65rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#C9D8CD;margin-top:4px}
+.top .tag{margin-left:auto;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:6px 12px;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+/* layout */
+.wrap{max-width:840px;margin:0 auto;padding:38px 22px 64px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:36px 38px;box-shadow:0 18px 44px rgba(10,64,39,.07)}
+.kicker{margin:0 0 10px;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.panel h1{font-size:clamp(1.7rem,4vw,2.35rem);margin-bottom:14px}
+.lead{color:#3B4A41;font-size:1.02rem;max-width:64ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:24px 0 26px;padding:0}
+.meta li{background:var(--sage);border:1px solid #D2DED2;border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:600;color:var(--forest)}
+.meta b{font-weight:800}
+/* name + start */
+.name-field{display:block;margin:0 0 22px;font-weight:700;font-size:.9rem;color:var(--forest)}
+.name-field span{display:block;font-weight:500;color:var(--muted);font-size:.8rem;margin:2px 0 8px}
+.name-field input{display:block;width:100%;max-width:420px;padding:11px 14px;border:2px solid var(--line);border-radius:10px;font:inherit;color:var(--ink);background:#fff}
+.name-field input:focus{outline:none;border-color:var(--forest);box-shadow:0 0 0 3px rgba(10,64,39,.12)}
+.best{margin:0 0 20px;padding:11px 16px;border-radius:10px;background:#FFF6E2;border:1px solid #F0D69B;font-size:.88rem;font-weight:600;color:#6B4A00}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--forest);background:var(--forest);color:#fff;border-radius:999px;padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.btn:hover:not(:disabled){background:var(--deep);border-color:var(--deep);transform:translateY(-1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-outline{background:#fff;color:var(--forest)}
+.btn-outline:hover:not(:disabled){background:var(--sage);color:var(--forest)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.offline{margin:24px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.hint{margin:14px 0 0;font-size:.8rem;color:var(--muted)}
+/* quiz */
+.bar-head{display:flex;justify-content:space-between;gap:14px;font-size:.82rem;font-weight:700;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+.bar-head b{color:var(--forest);font-size:.95rem}
+.progress{height:9px;background:var(--sage);border-radius:999px;overflow:hidden;margin:10px 0 28px}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--forest),#1C7A4E);border-radius:999px;transition:width .25s ease}
+.qtext{font-size:clamp(1.25rem,2.6vw,1.65rem);margin:0 0 22px}
+.options{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:13px 16px;color:var(--ink);cursor:pointer;transition:border-color .12s,background .12s}
+.opt:hover:not(:disabled){border-color:#9DB3A2;background:#F7FAF5}
+.opt .letter{flex:none;width:30px;height:30px;border-radius:50%;background:var(--sage);color:var(--forest);font-weight:800;font-size:.88rem;display:grid;place-items:center}
+.opt .label{padding-top:3px;font-size:.97rem}
+.opt.sel{border-color:var(--forest);background:#F1F7F0}
+.opt.sel .letter{background:var(--forest);color:#fff}
+.opt.correct{border-color:var(--green);background:#EAF6EE}
+.opt.correct .letter{background:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:#FDEEEC}
+.opt.wrong .letter{background:var(--red);color:#fff}
+.opt:disabled{cursor:default;opacity:1}
+.feedback{margin-top:22px;border-radius:12px;border-left:6px solid var(--forest);background:#F3F7F2;padding:15px 18px}
+.feedback.ok{border-color:var(--green);background:#EAF6EE}
+.feedback.no{border-color:var(--red);background:#FDEEEC}
+.feedback b{display:block;margin-bottom:4px;color:var(--forest);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase}
+.feedback.ok b{color:#0E5A36}
+.feedback.no b{color:#8F1D14}
+.feedback p{margin:0;font-size:.93rem}
+/* result */
+.ring{--p:0;width:158px;height:158px;flex:none;border-radius:50%;background:conic-gradient(var(--forest) calc(var(--p)*1%),#E2EAE1 0);display:grid;place-items:center;transition:background .4s}
+.ring-in{width:122px;height:122px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--line)}
+.ring-in b{font-family:Georgia,serif;font-size:2rem;line-height:1;color:var(--forest)}
+.ring-in span{font-size:.78rem;font-weight:700;color:var(--muted);margin-top:5px}
+.result-top{display:flex;gap:30px;align-items:center;margin:20px 0 30px;flex-wrap:wrap}
+.result-copy{flex:1;min-width:240px}
+.result-copy .lead{margin-bottom:10px}
+.who-line{font-weight:700;color:var(--forest);margin-bottom:8px}
+.saved{font-size:.84rem;color:var(--muted);margin:0}
+.review-head{font-size:1.2rem;margin:10px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+.review{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:rv}
+.review li{counter-increment:rv;border:1px solid var(--line);border-left:5px solid var(--green);border-radius:10px;padding:14px 16px;background:#fff}
+.review li.no{border-left-color:var(--red)}
+.rv-q{margin:0 0 8px;font-weight:700;font-size:.93rem;color:var(--ink)}
+.rv-q::before{content:counter(rv) ". ";color:var(--muted)}
+.rv-line{display:flex;gap:8px;align-items:baseline;margin:2px 0;font-size:.86rem;color:#33443A;flex-wrap:wrap}
+.badge{flex:none;border-radius:999px;padding:2px 8px;font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--sage);color:var(--forest)}
+.badge.key{background:#EAF6EE;color:#0E5A36}
+.review li.no .badge.key{background:#EAF6EE}
+.rv-why{margin:8px 0 0;padding-top:8px;border-top:1px dashed var(--line);font-size:.84rem;color:var(--muted)}
+/* footer */
+.foot{text-align:center;padding:0 20px 40px;font-size:.76rem;color:var(--muted);line-height:1.7}
+.foot b{color:var(--forest)}
+.foot a{color:var(--forest)}
+@media (max-width:640px){
+  .top{padding:13px 16px;gap:11px}
+  .top .tag{display:none}
+  .top .mark{width:38px;height:38px}
+  .wrap{padding:22px 13px 44px}
+  .panel{padding:24px 19px;border-radius:14px}
+  .result-top{gap:20px}
+  .ring{width:132px;height:132px}
+  .ring-in{width:102px;height:102px}
+  .ring-in b{font-size:1.7rem}
+}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;font-size:10.8pt}
+  .top{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:var(--forest);color:#fff;border-bottom-width:3px;padding:11px 16px}
+  .top .mark{width:36px;height:36px}
+  .top .tag{border-color:rgba(255,255,255,.5)}
+  .wrap{max-width:none;padding:0;margin:14px 0 0}
+  .panel{border:0;box-shadow:none;padding:0;border-radius:0}
+  .no-print,.hint,.offline,.saved{display:none!important}
+  .ring{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .review li{break-inside:avoid;page-break-inside:avoid}
+  .result-top{break-inside:avoid}
+  h1,h2{color:#0A4027}
+  .foot{border-top:1px solid #DCE4DC;padding-top:10px;margin-top:18px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0A4027"/><circle cx="32" cy="25" r="7" fill="#F2A91C"/><g stroke="#F2A91C" stroke-width="2.4" stroke-linecap="round"><path d="M32 11v4"/><path d="M18.5 25h4"/><path d="M41.5 25h4"/><path d="M22.6 15.6l2.8 2.8"/><path d="M41.4 15.6l-2.8 2.8"/></g><path d="M14 44c5-3 11.5-3 18 0 6.5-3 13-3 18 0v7c-5-3-11.5-3-18 0-6.5-3-13-3-18 0z" fill="#FAF7EF"/><path d="M32 45.5v5.2" stroke="#D6E2D5" stroke-width="1.6" stroke-linecap="round"/></svg>
+  <div class="who"><b>Dalswin Life &amp; Business Institute</b><span>Class 09 · Computer Literacy &amp; Workplace Digital Skills</span></div>
+  <span class="tag">Week 1 · Lesson 3 · Quiz</span>
+</header>
+
+<main class="wrap">
+  <section class="panel" id="screen-start">
+    <p class="kicker">Week 1 · Lesson 3 · Knowledge check</p>
+    <h1>Starting Up, Windows 10/11 &amp; the Desktop</h1>
+    <p class="lead">Ten multiple-choice questions on starting and shutting down a Windows computer, finding your way around the desktop, and working safely at a shared machine.</p>
+    <ul class="meta">
+      <li><b>10</b> questions</li>
+      <li><b>1</b> mark each</li>
+      <li>About <b>10</b> minutes</li>
+      <li><b>Instant</b> feedback</li>
+    </ul>
+    <label class="name-field" for="player">Your name <span>Optional — it appears on your printed result.</span>
+      <input id="player" type="text" maxlength="60" autocomplete="off" placeholder="e.g. Amina Joseph">
+    </label>
+    <div class="best" id="best" hidden></div>
+    <div class="actions">
+      <button class="btn" id="start">Start quiz</button>
+    </div>
+    <p class="offline">This is a single HTML file and works offline — no internet connection is needed. Your best score is saved in this browser only.</p>
+  </section>
+
+  <section class="panel" id="screen-quiz" hidden>
+    <div class="bar-head">
+      <span>Question <b id="qnum">1</b> of <b id="qtotal">10</b></span>
+      <span>Score <b id="score">0</b></span>
+    </div>
+    <div class="progress" id="prog" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><span id="prog-fill"></span></div>
+    <h2 class="qtext" id="qtext"></h2>
+    <div class="options" id="options" role="radiogroup" aria-labelledby="qtext"></div>
+    <div class="feedback" id="feedback" hidden><b id="fb-title"></b><p id="fb-why"></p></div>
+    <div class="actions">
+      <button class="btn" id="check" disabled>Check answer</button>
+      <button class="btn" id="next" hidden>Next question</button>
+    </div>
+    <p class="hint">Tip: press 1–4 to choose an answer, then Enter to check.</p>
+  </section>
+
+  <section class="panel" id="screen-result" hidden>
+    <p class="kicker">Week 1 · Lesson 3 · Result</p>
+    <h1 id="result-title">Quiz complete</h1>
+    <div class="result-top">
+      <div class="ring" id="ring"><div class="ring-in"><b id="pct">0%</b><span id="mark">0 / 10</span></div></div>
+      <div class="result-copy">
+        <p class="who-line" id="who-line" hidden></p>
+        <p class="lead" id="verdict"></p>
+        <p class="saved" id="saved"></p>
+      </div>
+    </div>
+    <h2 class="review-head">Review your answers</h2>
+    <ol class="review" id="review"></ol>
+    <div class="actions no-print">
+      <button class="btn" id="again">Try again</button>
+      <button class="btn btn-outline" id="print">Save or print result</button>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <b>Dalswin Life &amp; Business Institute</b> · Class 09 · Week 1 · Lesson 3<br>
+  Online version: <a href="https://richardnzembe.github.io/computer-lessons/week-01/lesson-03/quiz.html">richardnzembe.github.io/computer-lessons</a>
+</footer>
+
+<script>
+var DATA = [
+  {
+    "q": "What is the correct way to switch off a Windows computer at the end of the day?",
+    "options": [
+      "Use Start → Power → Shut down",
+      "Press and hold the power button until it stops",
+      "Switch off the power at the wall",
+      "Close the lid or cover the screen"
+    ],
+    "answer": 0,
+    "why": "A proper shutdown closes programs and saves settings. Holding the power button or cutting the power can lose unsaved work and damage files."
+  },
+  {
+    "q": "Which keyboard shortcut locks the screen immediately?",
+    "options": [
+      "Windows key + D",
+      "Windows key + L",
+      "Ctrl + L",
+      "Alt + F4"
+    ],
+    "answer": 1,
+    "why": "Windows key + L locks the computer without closing your programs. Windows key + D shows the desktop, Ctrl + L is used in browsers, and Alt + F4 closes the active window."
+  },
+  {
+    "q": "What is the difference between locking and signing out?",
+    "options": [
+      "Locking closes all programs; signing out keeps them open",
+      "They are exactly the same",
+      "Signing out closes your session and programs; locking keeps them open",
+      "Only signing out needs a password"
+    ],
+    "answer": 2,
+    "why": "Locking keeps your session and programs running behind the sign-in screen. Signing out ends the session, closes your programs and returns the computer to the sign-in screen for the next person."
+  },
+  {
+    "q": "What does the Start button give you access to?",
+    "options": [
+      "Only the apps you installed",
+      "Apps, settings and power options in one menu",
+      "Only the internet",
+      "Only the Recycle Bin"
+    ],
+    "answer": 1,
+    "why": "The Start menu is the main entrance to Windows: pinned and recent apps, all apps, settings, your account and the power options are all there."
+  },
+  {
+    "q": "Where can you type a few letters to find an app or setting fastest?",
+    "options": [
+      "In the Recycle Bin",
+      "In a Word document",
+      "In the notification area",
+      "In the Search box on the taskbar"
+    ],
+    "answer": 3,
+    "why": "The Search box searches apps, settings and files as you type. It is usually the quickest route when you know the name of what you need."
+  },
+  {
+    "q": "Which part of the taskbar shows the clock, network and volume icons?",
+    "options": [
+      "The Start menu",
+      "The notification area",
+      "The desktop",
+      "The Recycle Bin"
+    ],
+    "answer": 1,
+    "why": "The notification area (also called the system tray) sits at the right of the taskbar and holds the clock, network, volume, battery and notification icons."
+  },
+  {
+    "q": "What does the Maximise button do?",
+    "options": [
+      "Hides the window in the taskbar",
+      "Closes the program",
+      "Makes the window fill the screen",
+      "Deletes the file"
+    ],
+    "answer": 2,
+    "why": "Maximise enlarges the window to fill the screen. Minimise hides it in the taskbar, and Close ends the program."
+  },
+  {
+    "q": "Which shortcut snaps the active window to the left half of the screen?",
+    "options": [
+      "Ctrl + ←",
+      "Alt + ←",
+      "Shift + ←",
+      "Windows key + ←"
+    ],
+    "answer": 3,
+    "why": "Windows key + left arrow snaps the window to the left half; Windows key + right arrow snaps it to the right. This is the quick way to place two windows side by side."
+  },
+  {
+    "q": "Which Windows 11 feature helps you arrange several open windows quickly?",
+    "options": [
+      "Recycle Bin",
+      "Disk cleanup",
+      "Snap layouts",
+      "Paint"
+    ],
+    "answer": 2,
+    "why": "Snap layouts appear when you hover over a window’s Maximise button in Windows 11. They let you choose a grid and place windows in it in one move."
+  },
+  {
+    "q": "A program stops responding. What should you try first?",
+    "options": [
+      "Unplug the computer",
+      "Switch off at the wall",
+      "Delete the file",
+      "Close the program with the X or Task Manager"
+    ],
+    "answer": 3,
+    "why": "First wait a moment, then close the frozen program with the X. If it will not close, use Task Manager (Ctrl + Shift + Esc) to end the task. Cutting the power should be a last resort."
+  }
+];
+var SLUG = "w1l3";
+var BEST_KEY = "dalswin.classroom." + SLUG + ".best.v1";
+var LETTERS = ["A", "B", "C", "D"];
+var TOTAL = DATA.length;
+
+var state = { i: 0, score: 0, chosen: null, answered: false, answers: [] };
+var $ = function (id) { return document.getElementById(id); };
+
+function readBest() {
+  try { var v = parseInt(localStorage.getItem(BEST_KEY), 10); return isNaN(v) ? null : v; }
+  catch (e) { return null; }
+}
+function writeBest(v) {
+  try { localStorage.setItem(BEST_KEY, String(v)); } catch (e) {}
+}
+function showBest() {
+  var b = readBest();
+  var box = $("best");
+  if (b === null) { box.hidden = true; return; }
+  box.hidden = false;
+  box.textContent = "Your best score so far: " + b + " out of " + TOTAL + " (" + Math.round(b / TOTAL * 100) + "%).";
+}
+
+function start() {
+  state = { i: 0, score: 0, chosen: null, answered: false, answers: [] };
+  $("screen-start").hidden = true;
+  $("screen-result").hidden = true;
+  $("screen-quiz").hidden = false;
+  render();
+  window.scrollTo(0, 0);
+}
+
+function render() {
+  var q = DATA[state.i];
+  state.chosen = null;
+  state.answered = false;
+  $("qnum").textContent = state.i + 1;
+  $("qtotal").textContent = TOTAL;
+  $("score").textContent = state.score;
+  var pctDone = (state.i / TOTAL) * 100;
+  $("prog-fill").style.width = pctDone + "%";
+  $("prog").setAttribute("aria-valuenow", String(state.i));
+  $("qtext").textContent = q.q;
+
+  var box = $("options");
+  box.innerHTML = "";
+  q.options.forEach(function (text, idx) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "opt";
+    b.dataset.idx = String(idx);
+    var letter = document.createElement("span");
+    letter.className = "letter";
+    letter.textContent = LETTERS[idx];
+    var label = document.createElement("span");
+    label.className = "label";
+    label.textContent = text;
+    b.appendChild(letter);
+    b.appendChild(label);
+    b.addEventListener("click", function () { choose(idx); });
+    box.appendChild(b);
+  });
+
+  var fb = $("feedback");
+  fb.hidden = true;
+  fb.className = "feedback";
+  $("check").hidden = false;
+  $("check").disabled = true;
+  $("next").hidden = true;
+  $("next").textContent = state.i === TOTAL - 1 ? "See result" : "Next question";
+}
+
+function choose(idx) {
+  if (state.answered) return;
+  state.chosen = idx;
+  var opts = $("options").querySelectorAll(".opt");
+  for (var k = 0; k < opts.length; k++) opts[k].classList.toggle("sel", Number(opts[k].dataset.idx) === idx);
+  $("check").disabled = false;
+}
+
+function check() {
+  if (state.chosen === null || state.answered) return;
+  state.answered = true;
+  var q = DATA[state.i];
+  var correct = state.chosen === q.answer;
+  if (correct) state.score++;
+  state.answers.push({ chosen: state.chosen, correct: correct });
+
+  var opts = $("options").querySelectorAll(".opt");
+  for (var k = 0; k < opts.length; k++) {
+    var n = Number(opts[k].dataset.idx);
+    opts[k].disabled = true;
+    opts[k].classList.remove("sel");
+    if (n === q.answer) opts[k].classList.add("correct");
+    if (n === state.chosen && !correct) opts[k].classList.add("wrong");
+  }
+
+  var fb = $("feedback");
+  fb.hidden = false;
+  fb.className = "feedback " + (correct ? "ok" : "no");
+  $("fb-title").textContent = correct ? "Correct" : "Not quite";
+  $("fb-why").textContent = q.why;
+  $("score").textContent = state.score;
+  $("check").hidden = true;
+  $("next").hidden = false;
+  $("next").focus({ preventScroll: true });
+}
+
+function next() {
+  if (!state.answered) return;
+  state.i++;
+  if (state.i >= TOTAL) { finish(); return; }
+  render();
+  $("qtext").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function finish() {
+  var pct = Math.round((state.score / TOTAL) * 100);
+  var prev = readBest();
+  var isBest = prev === null || state.score > prev;
+  if (isBest) writeBest(state.score);
+
+  $("screen-quiz").hidden = true;
+  $("screen-result").hidden = false;
+  $("pct").textContent = pct + "%";
+  $("mark").textContent = state.score + " / " + TOTAL;
+  $("ring").style.setProperty("--p", String(pct));
+  $("result-title").textContent = pct >= 90 ? "Excellent result" : pct >= 70 ? "Good work" : pct >= 50 ? "Keep going" : "Time to revise";
+
+  var verdict;
+  if (pct >= 90) verdict = "You have a secure grasp of this lesson. You are ready for the assignment.";
+  else if (pct >= 70) verdict = "A solid result. Read the explanations for the questions you missed, then try again to build a perfect score.";
+  else if (pct >= 50) verdict = "You are halfway there. Re-read the lesson, study the explanations below, and retake the quiz.";
+  else verdict = "Do not worry — this is a first attempt. Re-read the lesson, then return to the quiz. The explanations below show the reasoning for every answer.";
+  $("verdict").textContent = verdict;
+
+  var name = ($("player").value || "").trim();
+  var who = $("who-line");
+  if (name) { who.hidden = false; who.textContent = name; }
+  else { who.hidden = true; }
+
+  $("saved").textContent = isBest
+    ? "New best score saved on this computer."
+    : "Your best score stays at " + prev + " out of " + TOTAL + ".";
+
+  var list = $("review");
+  list.innerHTML = "";
+  DATA.forEach(function (q, idx) {
+    var a = state.answers[idx];
+    var li = document.createElement("li");
+    li.className = a.correct ? "ok" : "no";
+
+    var qt = document.createElement("p");
+    qt.className = "rv-q";
+    qt.textContent = q.q;
+    li.appendChild(qt);
+
+    function line(badgeText, badgeClass, choiceIdx) {
+      var p = document.createElement("p");
+      p.className = "rv-line";
+      var b = document.createElement("span");
+      b.className = "badge " + badgeClass;
+      b.textContent = badgeText;
+      var t = document.createElement("span");
+      t.textContent = LETTERS[choiceIdx] + " · " + q.options[choiceIdx];
+      p.appendChild(b);
+      p.appendChild(t);
+      return p;
+    }
+    li.appendChild(line("Your answer", "", a.chosen));
+    li.appendChild(line("Correct answer", "key", q.answer));
+
+    var why = document.createElement("p");
+    why.className = "rv-why";
+    why.textContent = q.why;
+    li.appendChild(why);
+    list.appendChild(li);
+  });
+
+  window.scrollTo(0, 0);
+}
+
+function retry() {
+  $("screen-result").hidden = true;
+  $("screen-start").hidden = false;
+  showBest();
+  window.scrollTo(0, 0);
+}
+
+$("start").addEventListener("click", start);
+$("check").addEventListener("click", check);
+$("next").addEventListener("click", next);
+$("again").addEventListener("click", retry);
+$("print").addEventListener("click", function () { window.print(); });
+$("player").addEventListener("keydown", function (e) { if (e.key === "Enter") start(); });
+
+document.addEventListener("keydown", function (e) {
+  if ($("screen-quiz").hidden) return;
+  if (e.key >= "1" && e.key <= "4") {
+    var idx = Number(e.key) - 1;
+    if (idx < DATA[state.i].options.length) choose(idx);
+  } else if (e.key === "Enter") {
+    if (!state.answered && !$("check").hidden) { e.preventDefault(); check(); }
+    else if (state.answered) { e.preventDefault(); next(); }
+  }
+});
+
+showBest();
+</script>
+</body>
+</html>

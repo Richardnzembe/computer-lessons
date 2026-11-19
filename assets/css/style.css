@@ -1102,8 +1102,7 @@ body.promo-open{overflow:hidden}
   .section-head{break-inside:avoid;break-after:avoid}
   .two-col{gap:14px}
   .misconception{padding:11px 14px}
-  .next-band{break-inside:avoid}
-  .next-band .badge{display:none}
+  .next-band{display:none !important}
   .type-grid{grid-template-columns:1fr 1fr}
   .table-wrap{overflow:visible;border:1px solid #cfd8cf}
   [style*="overflow-x:auto"]{overflow:visible !important}
@@ -1126,5 +1125,17 @@ body.promo-open{overflow:hidden}
   .slide-title-slide{background:#0A4027 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .slide-title-slide h1{color:#FAF7EF !important}
   .slide-title-slide p{color:#E6EDE5 !important}
+}
+
+/* Print-only masthead for long reading handouts */
+.print-masthead{display:none}
+
+@media print{
+  .print-masthead{display:flex;align-items:center;gap:12px;border-bottom:3px solid #F2A91C;padding-bottom:12px;margin:0 0 22px}
+  .print-masthead img{width:40px;height:40px;border-radius:9px}
+  .print-masthead div{display:flex;flex-direction:column;line-height:1.2}
+  .print-masthead b{font-family:var(--font-display);font-size:1.05rem;color:#0A4027}
+  .print-masthead span{font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#5B6B61;margin-top:3px}
+  .print-masthead .pm-tag{margin-left:auto;border:1px solid #C4D0C5;border-radius:999px;padding:5px 10px;color:#0F4A2F;letter-spacing:.08em}
 }
 

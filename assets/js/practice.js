@@ -2,9 +2,10 @@
 (function () {
   "use strict";
 
-  var PKEY = "dalswin.cwl.w1l1.practice.v1";
+  var LESSON_ID = (document.body && document.body.getAttribute("data-lesson-progress")) || "w1l1";
+  var PKEY = "dalswin.cwl." + LESSON_ID + ".practice.v1";
 
-  var DATA = {
+  var DATA = window.PRACTICE_DATA || {
     a1: {
       title: "Computer or not?",
       options: ["Computer", "Not a computer"],

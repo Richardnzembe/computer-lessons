@@ -2,8 +2,9 @@
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "dalswin.cwl.w1l1.v1";
-  var CHECKLIST_KEY = "dalswin.cwl.w1l1.checklist.v1";
+  var LESSON_ID = (document.body && document.body.getAttribute("data-lesson-progress")) || "w1l1";
+  var STORAGE_KEY = "dalswin.cwl." + LESSON_ID + ".v1";
+  var CHECKLIST_KEY = "dalswin.cwl." + LESSON_ID + ".checklist.v1";
   var TRACKED = ["reading", "slides", "practice", "quiz", "assignment"];
   var state = load();
 

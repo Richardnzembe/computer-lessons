@@ -1,8 +1,8 @@
-/* Week 1 · Lesson 1 quiz — 10 questions with instant feedback */
+/* Week 1 quiz engine — 10 questions with instant feedback */
 (function () {
   "use strict";
 
-  var QUESTIONS = [
+  var QUESTIONS = window.QUIZ_QUESTIONS || [
     {
       q: "Which of these best describes a computer?",
       options: [
@@ -211,11 +211,11 @@
   }
 
   function bandFor(pct) {
-    if (pct >= 80) return { label: "Excellent", msg: "Outstanding work. You can explain what a computer is, what it does and which type fits a task. Move on to the slides to lock in the details." };
+    if (pct >= 80) return { label: "Excellent", msg: "Outstanding work. You can explain the key ideas and apply them to workplace tasks. Move on to the slides to lock in the details." };
     if (pct >= 70) return { label: "Very good", msg: "Strong understanding. Review the questions you missed, then continue to the slides and practice lab." };
-    if (pct >= 60) return { label: "Good", msg: "A good foundation. Re-read the sections on the information cycle and computer types before trying again." };
+    if (pct >= 60) return { label: "Good", msg: "A good foundation. Re-read the sections covered by the questions you missed before trying again." };
     if (pct >= 50) return { label: "Pass", msg: "You have the basics. Review the reading and retry the quiz to build confidence before the assignment." };
-    return { label: "Needs improvement", msg: "Do not worry — go back through the reading, especially the information cycle and the types of computers, then retry." };
+    return { label: "Needs improvement", msg: "Do not worry — go back through the reading, focus on the questions you missed, then retry." };
   }
 
   function showResult() {

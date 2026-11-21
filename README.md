@@ -2,7 +2,7 @@
 
 A ready-to-publish lesson website for **Class 09** at **Dalswin Life & Business Institute**.
 
-The first release is **Week 1 · Lesson 1: Introduction to Computers**. It is a complete lesson, not a demo: reading material, a 20-slide teaching deck, an interactive practice lab, a self-marking quiz, a workplace assignment and a teacher guide.
+The first release is **Week 1 · Lessons 1–4: Computer Fundamentals**. The available lessons include reading material, teaching slides, interactive practice, self-marking quizzes, workplace assignments and teacher guides.
 
 Everything is plain HTML, CSS and JavaScript. There is no build step and no server required, so it works on GitHub Pages (or any static host) exactly as it is.
 
@@ -125,7 +125,7 @@ Send learners the live address, or link it from the student portal. On a phone, 
 
 ---
 
-## 3. Adding Lesson 2 and beyond
+## 3. Adding future lessons
 
 The structure is designed to grow:
 

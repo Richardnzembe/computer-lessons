@@ -1,0 +1,12 @@
+window.QUIZ_QUESTIONS=[
+{q:"What is a folder mainly used for?",options:["Grouping files and related folders","Typing a document","Printing a page","Connecting to Wi-Fi"],answer:0,why:"A folder is a container that groups files and other folders."},
+{q:"Which item is a file?",options:["Work Documents","Letters","Meeting_Notes.docx","Reports"],answer:2,why:"Meeting_Notes.docx is a saved document file."},
+{q:"Where should Reports, Letters and Presentations be created?",options:["Inside Work Documents","Inside Recycle Bin","Inside a browser","Only on the desktop"],answer:0,why:"The three categories are subfolders of Work Documents."},
+{q:"Which command is best for saving a new document to a chosen folder?",options:["File > Save As","Delete","Refresh","Print Screen"],answer:0,why:"Save As lets you choose the new file name and destination."},
+{q:"What does Ctrl+S usually do after the first save?",options:["Save changes to the current file","Create a folder","Rename a folder","Open File Explorer"],answer:0,why:"Ctrl+S saves changes to the active document in many programs."},
+{q:"Which is the clearest filename for a client welcome letter?",options:["new final","Document1","Client_Welcome_Letter_2026-11-21","letter!!!"],answer:2,why:"A descriptive name and consistent date make retrieval easier."},
+{q:"What should you do after moving or renaming a file?",options:["Confirm the new name and location","Empty Recycle Bin","Assume it worked","Shut down immediately"],answer:0,why:"Verify the item is where expected and opens correctly."},
+{q:"Which key commonly starts renaming a selected File Explorer item?",options:["F2","Ctrl+P","Alt+Tab","Windows+L"],answer:0,why:"F2 commonly starts renaming the selected file or folder."},
+{q:"Which item is safe for deletion practice?",options:["A temporary file you created","A shared staff record","A system folder","A colleague report"],answer:0,why:"Practise only on a harmless item you own or have permission to delete."},
+{q:"You know part of a saved filename but not the folder. What should you do?",options:["Use File Explorer search, then verify its path","Create another copy","Empty Recycle Bin","Change its extension"],answer:0,why:"Search by a distinctive word, then confirm the location before opening it."}
+];
